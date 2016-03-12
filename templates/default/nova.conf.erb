@@ -744,14 +744,7 @@ insecure = <%= node['openstack']['compute']['api']['auth']['insecure'] %>
 <% if node['openstack']['compute']['network']['service_type'] == 'neutron' %>
 
 [neutron]
-# N.B. due to https://bugs.launchpad.net/nova/+bug/1206330
-# we override the endpoint scheme below, ignore the port
-# and essentially force http
-<% if @network_endpoint.port == 443 -%>
-url=http://<%= @network_endpoint.host %>:80
-<% else -%>
 url=<%= @network_endpoint.scheme %>://<%= @network_endpoint.host %>:<%= @network_endpoint.port %>
-<% end -%>
 insecure=<%= node['openstack']['compute']['network']['neutron']['insecure'] %>
 auth_strategy=<%= node["openstack"]["compute"]["network"]["neutron"]["auth_strategy"] %>
 admin_tenant_name=<%= node["openstack"]["compute"]["network"]["neutron"]["admin_tenant_name"] %>
