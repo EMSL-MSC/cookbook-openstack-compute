@@ -747,7 +747,9 @@ insecure = <%= node['openstack']['compute']['api']['auth']['insecure'] %>
 url=<%= @network_endpoint.scheme %>://<%= @network_endpoint.host %>:<%= @network_endpoint.port %>
 insecure=<%= node['openstack']['compute']['network']['neutron']['insecure'] %>
 auth_strategy=<%= node["openstack"]["compute"]["network"]["neutron"]["auth_strategy"] %>
+auth_plugin=<%= node["openstack"]["compute"]["network"]["neutron"]["auth_plugin"] %>
 admin_tenant_name=<%= node["openstack"]["compute"]["network"]["neutron"]["admin_tenant_name"] %>
+admin_project_name=<%= node["openstack"]["compute"]["network"]["neutron"]["admin_tenant_name"] %>
 admin_username=<%= node["openstack"]["compute"]["network"]["neutron"]["admin_username"] %>
 admin_password=<%= @neutron_admin_password %>
 admin_auth_url=<%= @identity_endpoint.to_s %>
