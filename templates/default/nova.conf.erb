@@ -751,6 +751,7 @@ admin_tenant_name=<%= node["openstack"]["compute"]["network"]["neutron"]["admin_
 admin_username=<%= node["openstack"]["compute"]["network"]["neutron"]["admin_username"] %>
 admin_password=<%= @neutron_admin_password %>
 admin_auth_url=<%= @identity_endpoint.to_s %>
+auth_url=<%= @identity_endpoint.to_s %>
 timeout=<%= node["openstack"]["compute"]["network"]["neutron"]["timeout"] %>
 region_name=<%= node["openstack"]["compute"]["network"]["neutron"]["region_name"] %>
 ovs_bridge=<%= node["openstack"]["compute"]["network"]["neutron"]["ovs_bridge"] %>

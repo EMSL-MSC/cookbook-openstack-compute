@@ -57,7 +57,7 @@ GRAPH
     yum (~> 3.5.4)
     yum-epel (~> 0.6.0)
   openstack-compute (12.0.0)
-    ceph (>= 0.8.1)
+    ceph (>= 0.9.1)
     openstack-bare-metal (>= 12.0.0)
     openstack-common (>= 12.0.0)
     openstack-identity (>= 12.0.0)
