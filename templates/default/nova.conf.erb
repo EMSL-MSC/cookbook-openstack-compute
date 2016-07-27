@@ -16,7 +16,6 @@ state_path=<%= node["openstack"]["compute"]["state_path"] %>
 instances_path=<%= node["openstack"]["compute"]["instances_path"] %>
 instance_name_template=<%= node["openstack"]["compute"]["instance_name_template"] %>
 network_allocate_retries=<%= node['openstack']['compute']['network_allocate_retries'] %>
-
 ssl_only=<%= node['openstack']['compute']['ssl_only'] %>
 cert=<%= node['openstack']['compute']['cert'] %>
 key=<%= node['openstack']['compute']['key'] %>
@@ -60,6 +59,7 @@ scheduler_host_manager=<%= node["openstack"]["compute"]["scheduler"]["scheduler_
 
 when "neutron" -%>
 
+network_device_mtu=<%= node['openstack']['network']['openvswitch']['veth_mtu'] %>
 network_api_class=<%= node["openstack"]["compute"]["network"]["neutron"]["network_api_class"]  %>
 linuxnet_interface_driver=<%= node["openstack"]["compute"]["network"]["neutron"]["linuxnet_interface_driver"] %>
 firewall_driver = nova.virt.firewall.NoopFirewallDriver
