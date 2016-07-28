@@ -720,11 +720,13 @@ rbd_secret_uuid=<%= node['openstack']['compute']['libvirt']['rbd']['cinder']['se
 
 [keystone_authtoken]
 auth_uri = <%= @auth_uri %>
-identity_uri = <%= @identity_uri %>
 auth_version = <%= node["openstack"]["compute"]["api"]["auth"]["version"] %>
-admin_tenant_name = <%= node["openstack"]["compute"]["service_tenant_name"] %>
-admin_user = <%= node["openstack"]["compute"]["service_user"] %>
-admin_password = <%= @service_pass %>
+auth_plugin = password
+project_name = <%= node["openstack"]["compute"]["service_tenant_name"] %>
+username = <%= node["openstack"]["compute"]["service_user"] %>
+password = <%= @service_pass %>
+user_domain_name = Default
+project_domain_name = Default
 signing_dir = <%= node["openstack"]["compute"]["api"]["auth"]["cache_dir"] %>
 <% unless node['openstack']['compute']['api']['auth']['cafile'].nil? %>
 cafile = <%= node['openstack']['compute']['api']['auth']['cafile'] %>
@@ -752,8 +754,8 @@ project_name=<%= node["openstack"]["compute"]["network"]["neutron"]["admin_tenan
 username=<%= node["openstack"]["compute"]["network"]["neutron"]["admin_username"] %>
 password=<%= @neutron_admin_password %>
 auth_url=<%= @identity_endpoint.to_s %>
-user_domain_id = default
-project_domain_id = default
+user_domain_name = Default
+project_domain_name = Default
 timeout=<%= node["openstack"]["compute"]["network"]["neutron"]["timeout"] %>
 region_name=<%= node["openstack"]["compute"]["network"]["neutron"]["region_name"] %>
 ovs_bridge=<%= node["openstack"]["compute"]["network"]["neutron"]["ovs_bridge"] %>
