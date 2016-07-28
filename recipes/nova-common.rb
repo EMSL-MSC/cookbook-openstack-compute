@@ -134,7 +134,9 @@ if node['openstack']['compute']['driver'].split('.').first == 'vmwareapi'
 end
 
 identity_admin_endpoint = admin_endpoint 'identity-admin'
-auth_uri = auth_uri_transform identity_endpoint.to_s, node['openstack']['compute']['api']['auth']['version']
+auth_uri = identity_endpoint
+auth_uri.path = ''
+auth_uri = auth_uri.to_s
 auth_url = identity_admin_endpoint
 auth_url.path = ''
 auth_url = auth_url.to_s
